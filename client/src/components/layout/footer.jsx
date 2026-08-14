@@ -16,20 +16,20 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-black text-white">
-      <div className="container px-2 sm:px-4 py-8 sm:py-12 md:py-16">
-        <div className="bg-gray-900/30 backdrop-blur-lg rounded-2xl border border-gray-800/50 p-3 sm:p-6 md:p-8">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+    <footer className="bg-white text-slate-900">
+      <div className="container px-2 sm:px-4 py-6 sm:py-8 md:py-10">
+        <div className="bg-white/30 backdrop-blur-lg rounded-xl border border-gray-200/50 p-3 sm:p-4 md:p-6">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {/* Brand Section */}
             <div className="lg:col-span-1 flex flex-col items-center sm:items-start">
-              <div className="flex items-center space-x-2 mb-6 justify-center sm:justify-start">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
-                  <CheckSquare className="h-5 w-5 text-white" />
+              <div className="flex items-center space-x-2 mb-4 justify-center sm:justify-start">
+                <div className="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center">
+                  <CheckSquare className="h-4 w-4 text-white" />
                 </div>
-                <span className="font-bold text-2xl text-white">TaskFlow</span>
-                <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-1 rounded-full border border-blue-500/30">Beta</span>
+                <span className="font-semibold text-lg text-slate-900">TaskFlow</span>
+                <span className="text-xs bg-blue-500/20 text-blue-700 px-2 py-0.5 rounded-full border border-blue-500/30">Beta</span>
               </div>
-              <p className="text-gray-300 text-sm leading-relaxed mb-6 max-w-xs text-center sm:text-left">
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 max-w-xs text-center sm:text-left">
                 Empowering developers with a comprehensive platform for task management, 
                 productivity tracking, and collaborative planning. Join our community and 
                 enhance your workflow efficiency.
@@ -44,7 +44,7 @@ export default function Footer() {
                   <Button 
                     variant="outline" 
                     size="sm"
-                    className="w-full sm:w-auto border-gray-600/50 text-gray-300 hover:bg-gray-800/50 hover:text-white bg-transparent backdrop-blur-sm group-hover:border-yellow-500/50"
+                    className="w-full sm:w-auto border-gray-200/50 text-gray-700 hover:bg-gray-100/50 bg-transparent backdrop-blur-sm group-hover:border-yellow-500/50"
                   >
                     <Star className="h-4 w-4 mr-2 group-hover:text-yellow-500 transition-colors" />
                     Star on GitHub
@@ -64,37 +64,37 @@ export default function Footer() {
 
             {/* Quick Links */}
             <div className="flex flex-col items-center sm:items-start">
-              <h3 className="font-semibold mb-4 text-white">Quick Links</h3>
+              <h3 className="font-semibold mb-4 text-slate-900">Quick Links</h3>
               <ul className="space-y-3 text-sm w-full">
                 <li className="flex items-center space-x-3 w-full group cursor-pointer" onClick={() => handleNavigation('/')}>
-                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-800/50 border border-gray-700/50 group-hover:border-blue-400/50 transition-all duration-200">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-100/50 border border-gray-200/50 group-hover:border-blue-400/50 transition-all duration-200">
                     <Home className="h-4 w-4 text-blue-400" />
                   </div>
-                  <span className="text-gray-300 hover:text-white transition-colors group">
+                  <span className="text-gray-700 hover:text-slate-900 transition-colors group">
                     Home
                   </span>
                 </li>
                 <li className="flex items-center space-x-3 w-full group cursor-pointer" onClick={() => handleNavigation('/dashboard')}>
-                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-800/50 border border-gray-700/50 group-hover:border-blue-400/50 transition-all duration-200">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-100/50 border border-gray-200/50 group-hover:border-blue-400/50 transition-all duration-200">
                     <Monitor className="h-4 w-4 text-blue-400" />
                   </div>
-                  <span className="text-gray-300 hover:text-white transition-colors group">
+                  <span className="text-gray-700 hover:text-slate-900 transition-colors group">
                     Dashboard
                   </span>
                 </li>
                 <li className="flex items-center space-x-3 w-full group cursor-pointer" onClick={() => handleNavigation('/about')}>
-                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-800/50 border border-gray-700/50 group-hover:border-pink-500/50 transition-all duration-200">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-100/50 border border-gray-200/50 group-hover:border-pink-500/50 transition-all duration-200">
                     <Heart className="h-4 w-4 text-blue-400" />
                   </div>
-                  <span className="text-gray-300 hover:text-pink-400 transition-colors group">
+                  <span className="text-gray-700 hover:text-pink-400 transition-colors group">
                     About
                   </span>
                 </li>
                 <li className="flex items-center space-x-3 w-full group cursor-pointer" onClick={() => handleNavigation('/signup')}>
-                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-800/50 border border-gray-700/50 group-hover:border-yellow-500/50 transition-all duration-200">
+                  <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-100/50 border border-gray-200/50 group-hover:border-yellow-500/50 transition-all duration-200">
                     <Bolt className="h-4 w-4 text-blue-400" />
                   </div>
-                  <span className="text-gray-300 hover:text-yellow-400 transition-colors group">
+                  <span className="text-gray-700 hover:text-yellow-400 transition-colors group">
                     Sign Up
                   </span>
                 </li>
@@ -103,7 +103,7 @@ export default function Footer() {
 
             {/* Connect */}
             <div className="flex flex-col items-center sm:items-start">
-              <h3 className="font-semibold mb-4 text-white">Connect</h3>
+              <h3 className="font-semibold mb-4 text-slate-900">Connect</h3>
               <ul className="space-y-3 text-sm w-full">
                 <li className="flex items-center space-x-3 w-full">
                   <div className="flex items-center justify-center h-8 w-8 rounded-lg bg-gray-800/50 border border-gray-700/50 group-hover:border-gray-600 transition-all duration-200">
@@ -113,7 +113,7 @@ export default function Footer() {
                     href="https://github.com/SagarSuryakantWaghmare" 
                     target="_blank"
                     rel="noreferrer"
-                    className="text-gray-300 hover:text-white transition-colors group"
+                    className="text-gray-700 hover:text-slate-900 transition-colors group"
                   >
                     GitHub
                     <ExternalLink className="h-3 w-3 ml-1 opacity-60 group-hover:opacity-100 inline" />
@@ -163,13 +163,13 @@ export default function Footer() {
           </div>
 
           {/* Bottom Section */}
-          <div className="border-t border-gray-700/50 mt-8 pt-8">
+              <div className="border-t border-gray-200/50 mt-8 pt-8">
             <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center text-center md:text-left">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-300 justify-center md:justify-start">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-sm text-gray-700 justify-center md:justify-start">
                 <span>© 2025 TaskFlow. All rights reserved.</span>
                 <button 
                   onClick={() => handleNavigation('/privacy')}
-                  className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-gray-300 hover:text-blue-400 hover:bg-gray-800/60 transition-colors cursor-pointer border border-gray-700/30 bg-gray-900/30 shadow-sm"
+                  className="inline-flex items-center gap-2 px-3 py-1 rounded-lg text-gray-700 hover:text-blue-600 hover:bg-gray-100/60 transition-colors cursor-pointer border border-gray-200/30 bg-gray-100/30 shadow-sm"
                   style={{ fontWeight: 500 }}
                 >
                   <Shield className="h-4 w-4 text-blue-400" />
@@ -184,13 +184,13 @@ export default function Footer() {
                   Terms
                 </button>
               </div>
-              <div className="text-sm text-gray-300">
+              <div className="text-sm text-gray-700">
                 Crafted with <span className="text-red-500">❤️</span> by{' '}
                 <a 
                   href="https://github.com/SagarSuryakantWaghmare" 
                   target="_blank"
                   rel="noreferrer"
-                  className="text-blue-400 hover:text-blue-300 transition-colors font-medium group"
+                  className="text-blue-600 hover:text-blue-500 transition-colors font-medium group"
                 >
                   Sagar Waghmare
                   <ExternalLink className="h-3 w-3 ml-1 opacity-60 group-hover:opacity-100 inline" />
