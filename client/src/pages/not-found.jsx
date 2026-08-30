@@ -68,7 +68,7 @@ const NotFound = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col justify-center items-center bg-black text-white overflow-x-hidden font-sans relative">
+  <div className="min-h-screen flex flex-col justify-center items-center bg-white text-slate-900 overflow-x-hidden font-sans relative">
       {/* Animated background shapes */}
       <div className="fixed w-full h-full top-0 left-0 z-0 pointer-events-none">
         {shapesConfig.map((shape, idx) => (
@@ -117,8 +117,8 @@ const NotFound = () => {
           }
         `}</style>
 
-        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-blue-400">Page Not Found</h1>
-        <p className="text-lg md:text-xl text-gray-400 max-w-xl mb-8 leading-relaxed">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 text-blue-600">Page Not Found</h1>
+        <p className="text-lg md:text-xl text-gray-600 max-w-xl mb-8 leading-relaxed">
           Oops! The page you're looking for seems to have vanished into the digital void.<br />
           Don't worry though - we'll help you get back on track to boost your productivity.
         </p>
@@ -134,7 +134,7 @@ const NotFound = () => {
             Go Home
           </a>
           <button
-            className="px-6 py-3 rounded-xl flex items-center gap-2 transition-all border border-gray-700 bg-gray-900 text-white hover:bg-gray-800 font-semibold w-full sm:w-auto justify-center"
+            className="px-6 py-3 rounded-xl flex items-center gap-2 transition-all border border-gray-200 bg-gray-100 text-gray-700 hover:bg-gray-200 font-semibold w_full sm:w-auto justify-center"
             onClick={() => window.history.back()}
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">

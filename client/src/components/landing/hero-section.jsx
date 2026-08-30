@@ -12,7 +12,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="container z-1 relative bg-black">
+    <section className="container z-1 relative bg-white text-slate-900">
       <div className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-6 sm:py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20 px-2 sm:px-0">
         {/* Badge */}
         <Badge variant="outline" className="mb-4 bg-blue-600 border-blue-600 text-white text-xs sm:text-sm px-3 py-1">
@@ -21,13 +21,13 @@ export function HeroSection() {
         </Badge>
 
         {/* Heading */}
-        <h1 className="text-center text-2xl sm:text-3xl md:text-6xl font-bold leading-tight tracking-tighter lg:leading-[1.1] text-white">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-6xl font-bold leading-tight tracking-tighter lg:leading-[1.1] text-slate-900">
           Organize your tasks.{" "}
-          <span className="text-blue-400">Boost productivity.</span>
+          <span className="text-blue-600">Boost productivity.</span>
         </h1>
 
         {/* Subheading */}
-        <p className="max-w-[750px] text-center text-base sm:text-lg text-gray-400 sm:text-xl px-1">
+        <p className="max-w-[750px] text-center text-base sm:text-lg text-gray-600 sm:text-xl px-1">
           TaskFlow helps you manage your daily tasks, set priorities, and achieve your goals 
           with a beautiful and intuitive interface. No hidden costs, no limitations.
         </p>
@@ -38,24 +38,24 @@ export function HeroSection() {
             Get Started Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
-          <Button variant="outline" size="lg" className="h-11 border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white" onClick={() => navigate('/about')}>
+          <Button variant="outline" size="lg" className="h-11 border-gray-200 text-gray-700 hover:bg-gray-100" onClick={() => navigate('/about')}>
             <Heart className="mr-2 h-4 w-4" />
             Learn More
           </Button>
         </div>
 
         {/* Stats */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-400 mt-2">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-xs sm:text-sm text-gray-600 mt-2">
           <div className="flex items-center space-x-2">
-            <span className="font-semibold text-white">10K+</span>
+            <span className="font-semibold text-slate-900">10K+</span>
             <span>Active Users</span>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="font-semibold text-white">1M+</span>
+            <span className="font-semibold text-slate-900">1M+</span>
             <span>Tasks Completed</span>
           </div>
           <div className="flex items-center space-x-2">
-            <span className="font-semibold text-white">100%</span>
+            <span className="font-semibold text-slate-900">100%</span>
             <span>Free Forever</span>
           </div>
         </div>

@@ -26,35 +26,30 @@ export function LoginForm({
     setIsLoading(true);
     setError("");
     setSuccess("");
-    setSuccess("");
 
     try {
       const formData = new FormData(e.target);
       const data = {
         email: formData.get('email'),
-        password: formData.get('password'),
+        password: formData.get('password')
       };
 
       console.log("Sending login request:", data);
 
-      const response = await api.post('/auth/login', {
-        email: data.email,
-        password: data.password,
-      });
-
+      const response = await api.post('/auth/login', data);
       console.log("Login response:", response.data);
 
-      if (response.data.success) {
+      if (response.data?.success) {
         setSuccess("Login successful! Redirecting...");
-        // Store token in localStorage
         const token = response.data.data?.token || response.data.token;
         if (token) {
           localStorage.setItem('token', token);
         }
-        // Navigate to dashboard after 2 seconds
         setTimeout(() => {
           window.location.href = '/dashboard';
         }, 2000);
+      } else {
+        setError(response.data?.message || 'Login failed. Please try again.');
       }
     } catch (error) {
       console.error("Login form submission error:", error);
@@ -67,40 +62,39 @@ export function LoginForm({
       }
     } finally {
       setIsLoading(false);
-      return;
     }
   }
 
   return (
-    <div className={cn("flex flex-col gap-6 w-full max-w-sm mx-auto", className)} {...props}>
-      <Card className="border-gray-800 bg-gray-900/90 backdrop-blur-sm shadow-2xl">
+    <div className={cn("flex flex-col gap-4 w-full max-w-sm mx-auto", className)} {...props}>
+      <Card className="border-gray-200 bg-white/95 backdrop-blur-sm shadow-sm">
         <CardHeader className="text-center space-y-2">
-          <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg">
-            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-2 shadow">
+            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <CardTitle className="text-2xl font-bold text-white">Welcome back</CardTitle>
+          <CardTitle className="text-2xl font-bold text-slate-900">Welcome back</CardTitle>
           <CardDescription className="text-gray-400">
             Sign in to your TaskFlow account
           </CardDescription>
         </CardHeader>
         <CardContent>
           {error && (
-            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
-              <p className="text-red-400 text-sm">{error}</p>
+            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-red-600 text-sm">{error}</p>
             </div>
           )}
 
           {/* Success Message */}
           {success && (
-            <div className="mb-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
-              <p className="text-green-400 text-sm">{success}</p>
+            <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
+              <p className="text-green-600 text-sm">{success}</p>
             </div>
           )}
           <form className="space-y-4" onSubmit={submitHandle}>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-300 text-sm font-medium">Email address</Label>
+              <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email address</Label>
               <Input 
                 id="email" 
                 name="email"
@@ -108,7 +102,7 @@ export function LoginForm({
                 placeholder="Enter your email" 
                 required 
                 disabled={isLoading}
-                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
+                className="bg-gray-100/70 border-gray-200 text-slate-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
               />
             </div>
             <div className="space-y-2">
@@ -119,22 +113,22 @@ export function LoginForm({
                 placeholder="Enter your password"
                 required 
                 disabled={isLoading}
-                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
+                className="bg-gray-100/70 border-gray-200 text-slate-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
               />
             </div>
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 h-11 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl mt-6"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2 h-9 rounded-md transition-all duration-150 shadow mt-4"
             >
               {isLoading ? "Signing In..." : "Sign In"}
             </Button>
             <div className="text-center pt-4">
-              <span className="text-gray-400 text-sm">Don't have an account? </span>
+              <span className="text-gray-600 text-sm">Don't have an account? </span>
               <button 
                 type="button"
                 onClick={() => navigate('/signup')} 
-                className="text-blue-400 hover:text-blue-300 font-medium text-sm transition-colors"
+                className="text-blue-600 hover:text-blue-500 font-medium text-sm transition-colors"
               >
                 Sign up
               </button>
@@ -143,13 +137,13 @@ export function LoginForm({
         </CardContent>
       </Card>
       
-      <div className="text-center text-xs text-gray-500 leading-relaxed">
+      <div className="text-center text-xs text-gray-600 leading-relaxed">
         By signing in, you agree to our{" "}
-        <a href="/terms" className="text-blue-400 hover:text-blue-300 transition-colors">
+        <a href="/terms" className="text-blue-600 hover:text-blue-500 transition-colors">
           Terms of Service
         </a>{" "}
         and{" "}
-        <a href="/privacy" className="text-blue-400 hover:text-blue-300 transition-colors">
+        <a href="/privacy" className="text-blue-600 hover:text-blue-500 transition-colors">
           Privacy Policy
         </a>
       </div>
