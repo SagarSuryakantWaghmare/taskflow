@@ -1,0 +1,41 @@
+{
+  "validLogin": {
+    "email": "atharvawandhare@gmail.com",
+    "password": "12345678"
+  },
+
+  "invalidLogin": {
+    "email": "wrong@gmail.com",
+    "password": "wrong123"
+  },
+
+  "emptyLogin": {
+    "email": "",
+    "password": ""
+  },
+
+  "newUser": {
+    "name": "Test User",
+    "email": "newuser@gmail.com",
+    "password": "123456"
+  },
+
+  "taskData": {
+    "title": "Automation Task",
+    "description": "Task created by the automation suite",
+    "priority": "high",
+    "category": "Work"
+  },
+
+  "updatedTaskData": {
+    "title": "Automation Task Updated",
+    "description": "Task updated by the automation suite",
+    "priority": "low",
+    "category": "Personal"
+  },
+
+  "categoryData": {
+    "name": "Automation Category",
+    "color": "#3b82f6"
+  }
+}
