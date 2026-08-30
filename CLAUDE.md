@@ -32,28 +32,42 @@ taskflow/
 
 ## Commands
 
+The primary shell here is **Windows PowerShell 5.1**, which does not support the
+`&&` chaining operator — each `cd` goes on its own line.
+
 ```bash
 # Frontend + backend together (from the repo root)
 npm run dev
 
 # Frontend only
-cd client && npm run dev
+cd client
+npm run dev
 
 # Backend only
-cd server && npm run dev
+cd server
+npm run dev
 
 # Automation - everything
-cd automation && mvn test
+cd automation
+mvn test
 
 # Automation - API only (no browser opens)
-cd automation && mvn test -Dsuite=testng-api.xml
+mvn test -Papi
 
 # Automation - UI only
-cd automation && mvn test -Dsuite=testng-ui.xml
+mvn test -Pui
+
+# Automation - single class
+mvn test -Dtest=TaskTest
 
 # Automation - by group: smoke, regression, api, ui, auth, task, category
-cd automation && mvn test -Dgroups=smoke
+mvn test -Dgroups=smoke
 ```
+
+Suite selection uses Maven **profiles** (`-Papi` / `-Pui`), not `-Dsuite=...`.
+PowerShell splits an unquoted `-D` argument containing a file extension, so
+`mvn test -Dsuite=testng-api.xml` fails with *Unknown lifecycle phase ".xml"*.
+If you do need the property form, quote it: `mvn test "-Dsuite=testng-api.xml"`.
 
 ## Backend API contract
 
@@ -163,8 +177,9 @@ Conventions to follow when adding tests:
 - Lifecycle chains (create → read → update → delete) are ordered with TestNG
   `priority` and share state through a private static field.
 
-Suites: `testng.xml` (all), `testng-api.xml`, `testng-ui.xml`. Set
-`headless=true` in `config.properties` for a display-less machine.
+Suites: `testng.xml` (all, the default), `testng-api.xml` (`-Papi`),
+`testng-ui.xml` (`-Pui`). Set `headless=true` in `config.properties` for a
+display-less machine.
 
 ## Working conventions
 

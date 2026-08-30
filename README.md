@@ -529,10 +529,10 @@ cd automation
 mvn test
 
 # Run only the API tests - fast, no browser is opened
-mvn test -Dsuite=testng-api.xml
+mvn test -Papi
 
 # Run only the Selenium UI tests
-mvn test -Dsuite=testng-ui.xml
+mvn test -Pui
 
 # Run a single test class
 mvn test -Dtest=TaskTest
@@ -540,6 +540,11 @@ mvn test -Dtest=TaskTest
 # Run by TestNG group: smoke, regression, api, ui, auth, task, category
 mvn test -Dgroups=smoke
 ```
+
+> **Windows PowerShell note:** run `cd automation` on its own line — PowerShell 5.1
+> does not support the `&&` chaining operator. The `-Papi` / `-Pui` profiles are used
+> instead of `-Dsuite=...` because PowerShell splits an unquoted `-D` argument that
+> contains a file extension.
 
 **Headless mode** — for CI or a machine without a display, flip one line in
 `src/test/resources/config.properties`:
