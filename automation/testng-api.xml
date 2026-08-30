@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<!-- REST Assured tests only - no browser is opened by this suite. -->
+<suite name="TaskFlow API Suite" verbose="1">
+
+    <test name="API Tests">
+        <classes>
+            <class name="tests.AuthTest"/>
+            <class name="tests.TaskTest"/>
+            <class name="tests.CategoryTest"/>
+        </classes>
+    </test>
+
+</suite>
