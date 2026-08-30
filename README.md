@@ -39,6 +39,7 @@ TaskFlow is a **free, open-source task management application** designed for mod
 - [🎨 Screenshots & UI Gallery](#-screenshots--ui-gallery)
 - [🔧 Setup & Configuration](#-setup--configuration)
 - [📱 API Reference](#-api-reference)
+- [🧪 Test Automation](#-test-automation)
 - [🤝 Contributing & Community](#-contributing--community)
 - [📄 License & Legal](#-license--legal)
 - [👨‍💻 About the Developer](#-about-the-developer)
@@ -134,6 +135,13 @@ Experience TaskFlow without signing up! Use our demo account to explore all feat
 - **MongoDB Atlas** - Cloud database with built-in security and monitoring
 - **Git & GitHub** - Version control and collaborative development
 - **ESLint & Prettier** - Code linting and formatting for consistency
+
+### 🧪 Testing & Automation
+- **Java 21 & Maven** - Automation project setup and build
+- **TestNG** - Test runner with groups, priorities and data providers
+- **REST Assured** - API testing for the auth, task and category endpoints
+- **Selenium WebDriver** - Browser automation for the login, signup and task flows
+- **Page Object Model** - Design pattern keeping locators separate from the tests
 
 ### 📱 Development Tools
 - **VS Code** - Recommended IDE with React and Node.js extensions
@@ -300,6 +308,17 @@ taskflow/                           # Root project directory
 │   │   └── constant.js           # Application constants
 │   ├── package.json              # Server dependencies
 │   └── render.yaml               # Render deployment configuration
+├── 📁 automation/                # Java test automation suite
+│   ├── 📁 src/test/java/         # Test sources
+│   │   ├── 📁 base/              # BaseTest, ApiBaseTest, UiBaseTest
+│   │   ├── 📁 pages/             # Page Object Model classes
+│   │   ├── 📁 tests/             # API and UI test classes
+│   │   └── 📁 utils/             # Config, driver, token and data helpers
+│   ├── 📁 src/test/resources/    # config.properties and testdata.json
+│   ├── pom.xml                   # Maven build configuration
+│   ├── testng.xml                # Full regression suite
+│   ├── testng-api.xml            # API suite
+│   └── testng-ui.xml             # UI suite
 ├── 📁 screenshots/               # Application screenshots for README
 │   ├── home.png                  # Landing page screenshot
 │   ├── features.png              # Features showcase
@@ -436,6 +455,202 @@ Content-Type: application/json
   "color": "bg-blue-500"
 }
 ```
+
+## 🧪 Test Automation
+
+TaskFlow ships with its own **automation suite** that tests the live application end to end — the REST API with **REST Assured** and the browser flows with **Selenium WebDriver**, both driven by **TestNG** and built with **Maven**.
+
+The suite lives in the [`automation/`](automation) folder and is completely independent of the app, so it can be pointed at local, staging or production URLs by editing a single properties file.
+
+### 🧰 Automation Tech Stack
+
+| Layer | Tool | Purpose |
+|-------|------|---------|
+| Language | **Java 21** | Test implementation language |
+| Build | **Maven** | Dependency management and test execution |
+| Test Runner | **TestNG 7.12** | Grouping, priorities, data providers, suites |
+| API Testing | **REST Assured 6.0** | Request building and JSON response assertions |
+| UI Testing | **Selenium WebDriver 4.21** | Browser automation on Chrome |
+| Driver Setup | **WebDriverManager 5.8** | Downloads and wires up ChromeDriver automatically |
+| Test Data | **Jackson Databind** | Reads `testdata.json` into the tests |
+| Design Pattern | **Page Object Model** | Keeps locators out of the test classes |
+
+### 📂 Automation Structure
+
+```
+automation/
+├── pom.xml                              # Maven build + Surefire suite runner
+├── testng.xml                           # Full regression suite (API + UI)
+├── testng-api.xml                       # API tests only (no browser)
+├── testng-ui.xml                        # UI tests only
+└── src/test/
+    ├── java/
+    │   ├── base/
+    │   │   ├── BaseTest.java             # Environment URLs + per-test logging
+    │   │   ├── ApiBaseTest.java          # api() and authApi() request specs
+    │   │   └── UiBaseTest.java           # Opens and closes the browser
+    │   ├── pages/                        # Page Object Model
+    │   │   ├── BasePage.java             # Shared explicit-wait helpers
+    │   │   ├── LoginPage.java            # /login screen
+    │   │   ├── SignupPage.java           # /signup screen
+    │   │   └── DashboardPage.java        # Sidebar, task modal, task cards
+    │   ├── tests/
+    │   │   ├── AuthTest.java             # API - register, login, profile, logout
+    │   │   ├── TaskTest.java             # API - full task CRUD lifecycle
+    │   │   ├── CategoryTest.java         # API - category CRUD + default rules
+    │   │   ├── UiLoginTest.java          # UI  - login journeys
+    │   │   ├── UiSignupTest.java         # UI  - signup journeys
+    │   │   └── UiTaskTest.java           # UI  - create and delete a task
+    │   └── utils/
+    │       ├── ConfigReader.java         # Reads config.properties
+    │       ├── DriverManager.java        # Thread-safe Chrome driver
+    │       ├── TokenManager.java         # Logs in once, caches the JWT
+    │       └── TestDataReader.java       # Builds request bodies from JSON
+    └── resources/
+        ├── config.properties             # URLs, endpoints, credentials, waits
+        └── testdata.json                 # Login, user, task and category data
+```
+
+### ⚡ Running the Tests
+
+**Prerequisites**
+
+- **Java 21** or newer (`java -version`)
+- **Maven 3.9+** (`mvn -version`)
+- **Google Chrome** installed — the driver itself is downloaded automatically
+
+**Commands**
+
+```bash
+# Move into the automation module
+cd automation
+
+# Run everything (API + UI)
+mvn test
+
+# Run only the API tests - fast, no browser is opened
+mvn test -Dsuite=testng-api.xml
+
+# Run only the Selenium UI tests
+mvn test -Dsuite=testng-ui.xml
+
+# Run a single test class
+mvn test -Dtest=TaskTest
+
+# Run by TestNG group: smoke, regression, api, ui, auth, task, category
+mvn test -Dgroups=smoke
+```
+
+**Headless mode** — for CI or a machine without a display, flip one line in
+`src/test/resources/config.properties`:
+
+```properties
+headless=true
+```
+
+### 🎯 Test Configuration
+
+Everything environment-specific lives in `src/test/resources/config.properties`, so no
+URL or credential is ever hard-coded inside a test:
+
+```properties
+# Application under test
+base.url=https://taskflow-2075.onrender.com     # Backend API
+ui.base.url=https://taskflow-sagar.vercel.app   # Frontend
+
+# Demo user used by the suite
+email=atharvawandhare@gmail.com
+password=12345678
+
+# Browser and waits
+browser=chrome
+headless=false
+implicit.wait=10
+explicit.wait=15
+```
+
+To run against a local build, point `base.url` at `http://localhost:5000` and
+`ui.base.url` at `http://localhost:5173`.
+
+### ✅ API Test Coverage
+
+| Test Class | Scenario | Expected |
+|------------|----------|----------|
+| `AuthTest` | Register a brand new user | `201` + JWT returned |
+| `AuthTest` | Register with an email that already exists | `401` *Account is already existed* |
+| `AuthTest` | Register with missing fields | `400` *Please provide all required fields* |
+| `AuthTest` | Login with valid credentials | `200` + JWT + user payload |
+| `AuthTest` | Login with invalid / empty credentials *(data provider)* | `401` *Invalid credentials* |
+| `AuthTest` | Get profile with a valid token | `200`, password never exposed |
+| `AuthTest` | Get profile with no token | `401` *Access denied* |
+| `AuthTest` | Get profile with a tampered token | `401` *Invalid token* |
+| `AuthTest` | Logout | `200` *Logout successfully* |
+| `TaskTest` | Create a task | `201` + task id |
+| `TaskTest` | List all tasks | `200` + todos array + pagination |
+| `TaskTest` | Get a single task by id | `200` + matching task |
+| `TaskTest` | Filter tasks by `completed=false` | `200`, no completed tasks returned |
+| `TaskTest` | Update a task | `200` + updated fields |
+| `TaskTest` | Toggle task status | `200`, task becomes completed |
+| `TaskTest` | Delete a task | `200` *Todo deleted successfully* |
+| `TaskTest` | Read a deleted / unknown task | `404` *Todo not found* |
+| `TaskTest` | Create a task without a token | `401` *Access denied* |
+| `TaskTest` | Create a task without a title | `400` validation error |
+| `TaskTest` | Create a task with a description under 10 chars | `400` validation error |
+| `CategoryTest` | Create a custom category | `201` + category id |
+| `CategoryTest` | List categories | `200` + 4 defaults + custom ones |
+| `CategoryTest` | Create a duplicate category name | `400` *already exists* |
+| `CategoryTest` | Create a category without a name | `400` *Category name is required* |
+| `CategoryTest` | Update a custom category | `200` + new name and colour |
+| `CategoryTest` | Update / delete a **default** category | `403` *Cannot modify default categories* |
+| `CategoryTest` | Call the category API without a token | `401` *Access denied* |
+| `CategoryTest` | Delete a custom category | `200` *Category deleted successfully* |
+| `CategoryTest` | Delete the same category again | `404` *not found or access denied* |
+
+### 🖥️ UI Test Coverage
+
+| Test Class | Journey | Verified |
+|------------|---------|----------|
+| `UiLoginTest` | Login with the demo user | Success banner, redirect to `/dashboard` |
+| `UiLoginTest` | Login with wrong credentials | *Invalid credentials* banner, stays on `/login` |
+| `UiLoginTest` | Follow the **Sign up** link | Lands on `/signup` |
+| `UiSignupTest` | Register a fresh user | *Account created successfully!* banner |
+| `UiSignupTest` | Passwords that do not match | *Passwords do not match* banner |
+| `UiSignupTest` | Register with an existing email | Backend error surfaced in the form |
+| `UiTaskTest` | Login → Tasks → add a task → delete it | Toast message, task card appears then disappears |
+
+### 🏗️ How the Framework is Built
+
+- **Config driven** — every URL, endpoint, credential and wait comes from
+  `config.properties` through `ConfigReader`, so switching environments never
+  touches a test file.
+- **Data driven** — request bodies are built by `TestDataReader` from
+  `testdata.json`, and TestNG `@DataProvider` runs the login test across
+  valid, invalid and empty credentials.
+- **Re-runnable** — registration and category tests generate unique emails and
+  names, so the suite can be executed repeatedly without hitting
+  "already exists" failures.
+- **One login per run** — `TokenManager` authenticates once with the demo user
+  and caches the JWT for every protected API call.
+- **Page Object Model** — locators live in `pages/`, assertions live in
+  `tests/`. A UI change means editing one page class, not every test.
+- **Clean browser handling** — `UiBaseTest` opens Chrome before each UI test
+  and `DriverManager` always quits it afterwards, even when a test fails, so
+  no orphan browser processes are left behind.
+- **Grouped execution** — every test is tagged (`smoke`, `regression`, `api`,
+  `ui`, `auth`, `task`, `category`) so CI can run a quick smoke pass or the
+  full regression.
+
+### 📊 Test Reports
+
+TestNG writes its HTML and XML reports after every run:
+
+```
+automation/target/surefire-reports/    # Surefire output (index.html, emailable-report.html)
+automation/test-output/                # TestNG default report folder
+```
+
+Open `automation/target/surefire-reports/index.html` in a browser for the
+pass / fail breakdown of the last run.
 
 ## 🤝 Contributing
 
