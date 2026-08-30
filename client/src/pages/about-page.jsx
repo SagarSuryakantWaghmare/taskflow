@@ -10,7 +10,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-slate-900">
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
@@ -22,10 +22,10 @@ export default function AboutPage() {
           </div>
           
           <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            About <span className="text-blue-400">TaskFlow</span>
+            About <span className="text-blue-600">TaskFlow</span>
           </h1>
           
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
             A modern task management application designed to help you stay organized, 
             boost productivity, and achieve your goals with a beautiful and intuitive interface.
           </p>
@@ -41,7 +41,7 @@ export default function AboutPage() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="border-gray-600 text-gray-300 hover:bg-gray-800"
+              className="border-gray-200 text-gray-700 hover:bg-gray-100"
               onClick={() => navigate('/')}
             >
               Back to Home
@@ -62,7 +62,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="bg-gray-900/50 backdrop-blur-xl rounded-2xl border border-gray-800/50 p-8 md:p-12">
+          <div className="bg-white/50 backdrop-blur-xl rounded-2xl border border-gray-200/50 p-8 md:p-12">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div className="text-center md:text-left">
                 <div className="w-32 h-32 rounded-full overflow-hidden flex items-center justify-center mx-auto md:mx-0 mb-6 border-4 border-blue-500/40 shadow-lg">
@@ -73,8 +73,8 @@ export default function AboutPage() {
                   />
                 </div>
                 <h3 className="text-2xl font-bold mb-2">Sagar Suryakant Waghmare</h3>
-                <p className="text-blue-400 mb-4">Full Stack Developer</p>
-                <p className="text-gray-300 mb-6">
+                <p className="text-blue-600 mb-4">Full Stack Developer</p>
+                <p className="text-gray-600 mb-6">
                   A passionate developer with expertise in modern web technologies. 
                   Specializing in React, Node.js, and MongoDB to create seamless user experiences.
                 </p>
@@ -84,7 +84,7 @@ export default function AboutPage() {
                     href="https://github.com/SagarSuryakantWaghmare" 
                     target="_blank"
                     rel="noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 bg-gray-800/50 rounded-lg hover:bg-gray-700/50 transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 bg-gray-100/50 rounded-lg hover:bg-gray-200/50 transition-colors"
                   >
                     <Github className="h-4 w-4" />
                     GitHub
@@ -151,50 +151,50 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Why <span className="text-blue-400">TaskFlow</span>?
+              Why <span className="text-blue-600">TaskFlow</span>?
             </h2>
-            <p className="text-lg text-gray-300">
+            <p className="text-lg text-gray-600">
               Built with modern technologies and best practices
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800/50">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50">
               <div className="w-12 h-12 bg-blue-600/20 rounded-lg flex items-center justify-center mb-4">
                 <Zap className="h-6 w-6 text-blue-400" />
               </div>
               <h3 className="font-semibold mb-2">Fast & Responsive</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-600 text-sm">
                 Optimized for speed with modern React and efficient state management
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800/50">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50">
               <div className="w-12 h-12 bg-green-600/20 rounded-lg flex items-center justify-center mb-4">
                 <Shield className="h-6 w-6 text-green-400" />
               </div>
               <h3 className="font-semibold mb-2">Secure & Private</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-600 text-sm">
                 JWT authentication and user isolation ensure your data stays private
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800/50">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50">
               <div className="w-12 h-12 bg-purple-600/20 rounded-lg flex items-center justify-center mb-4">
                 <Smartphone className="h-6 w-6 text-purple-400" />
               </div>
               <h3 className="font-semibold mb-2">Mobile Ready</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-600 text-sm">
                 Fully responsive design that works perfectly on all devices
               </p>
             </div>
 
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-xl p-6 border border-gray-800/50">
+            <div className="bg-white/50 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50">
               <div className="w-12 h-12 bg-orange-600/20 rounded-lg flex items-center justify-center mb-4">
                 <Database className="h-6 w-6 text-orange-400" />
               </div>
               <h3 className="font-semibold mb-2">Modern Stack</h3>
-              <p className="text-gray-300 text-sm">
+              <p className="text-gray-600 text-sm">
                 Built with React, Node.js, MongoDB, and Tailwind CSS
               </p>
             </div>
