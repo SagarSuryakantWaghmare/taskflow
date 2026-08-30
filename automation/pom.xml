@@ -15,10 +15,27 @@
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-        <!-- Default suite. Override from the command line, for example:
-             mvn test -Dsuite=testng-api.xml -->
+        <!-- Suite executed by "mvn test". Switch it with the api / ui profiles
+             below, for example: mvn test -Papi -->
         <suite>testng.xml</suite>
     </properties>
+
+    <profiles>
+        <!-- Profiles are used instead of -Dsuite=... because PowerShell splits an
+             unquoted -D argument that contains a file extension. -->
+        <profile>
+            <id>api</id>
+            <properties>
+                <suite>testng-api.xml</suite>
+            </properties>
+        </profile>
+        <profile>
+            <id>ui</id>
+            <properties>
+                <suite>testng-ui.xml</suite>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <!-- Source: https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
