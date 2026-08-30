@@ -1,32 +1,151 @@
-# 🚀 TaskFlow - Modern Task Management Application | Free Todo List App | React Task Manager 2025
+# 🚀 TaskFlow - Modern Task Management Application
 
 <div align="center">
-  
+
 ![TaskFlow - Modern Task Management Application](screenshots/home.png)
 
-**A beautiful, modern task management application built with React, Node.js, and MongoDB - The ultimate productivity tool for teams and individuals**
+**The ultimate full-stack task management platform** — built with React, Node.js, Express, and MongoDB.
+Manage tasks, organize projects, and boost productivity with a beautiful, responsive interface.
 
-**Keywords:** Task Management, Todo List, Productivity App, React Application, MERN Stack, Project Management, Team Collaboration, Free Task Manager
+### 📊 Project Stats
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge&logo=vercel)](https://taskflow-sagar.vercel.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/SagarSuryakantWaghmare/taskflow)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge&logo=react)](https://reactjs.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-Express-green?style=for-the-badge&logo=node.js)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb)](https://mongodb.com/)
+![Stars](https://img.shields.io/badge/Project-Open%20Source-brightgreen?style=flat-square)
+![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+![Java Tests](https://img.shields.io/badge/Tests-31%20API%20%2B%207%20UI-success?style=flat-square)
+![Build](https://img.shields.io/badge/Build-Maven%20%2B%20Vite-orange?style=flat-square)
+
+### 🔗 Quick Links
+
+[![🌐 Live Demo](https://img.shields.io/badge/→-Live%20Demo-0070f3?style=for-the-badge)](https://taskflow-sagar.vercel.app/)
+[![📖 Documentation](https://img.shields.io/badge/→-Documentation-34a853?style=for-the-badge)](#-quick-start-guide)
+[![🧪 API Tests](https://img.shields.io/badge/→-Test%20Automation-ff6b6b?style=for-the-badge)](#-test-automation)
+[![💬 Issues](https://img.shields.io/badge/→-Report%20Issue-d73a49?style=for-the-badge)](https://github.com/SagarSuryakantWaghmare/taskflow/issues)
+
+### 🛠 Tech Stack at a Glance
+
+| Frontend | Backend | Database | Testing | Deployment |
+|----------|---------|----------|---------|------------|
+| React 18 | Node.js | MongoDB | TestNG + Selenium | Vercel + Render |
+| Vite | Express | Mongoose | REST Assured | MongoDB Atlas |
+| Tailwind CSS | JWT Auth | Compass | Maven | GitHub Actions |
 
 </div>
 
+---
+
+## ✨ What Makes TaskFlow Special
+
+> **Full-featured task management** meets **production-grade automation**. Not just another todo app — this is a complete MERN stack project with 38+ automated tests, comprehensive API documentation, and deployment-ready architecture.
+
+### 🎯 For Users
+- ✅ Organize tasks by priority, category, and due date
+- ✅ Track progress with completion status and filtering
+- ✅ Beautiful dark-mode UI with responsive design
+- ✅ Instant notifications and toast feedback
+- ✅ Completely free, no ads, no sign-up walls
+
+### 💻 For Developers
+- ✅ **31 REST API tests** — complete auth, task and category coverage
+- ✅ **7 UI automation tests** — login, signup, task flows with Selenium
+- ✅ **Clean architecture** — separation of concerns, Page Object Model
+- ✅ **Fully documented** — API contract, environment setup, run commands
+- ✅ **Production deployment** — live on Vercel (frontend) + Render (backend)
+
 ## 🎯 What is TaskFlow?
 
-TaskFlow is a **free, open-source task management application** designed for modern teams and individuals who want to boost their productivity. Built with the latest web technologies including React, Node.js, and MongoDB, TaskFlow offers a seamless experience for managing tasks, projects, and daily workflows.
+TaskFlow is a **production-ready full-stack task management platform** that demonstrates modern web development best practices. It's not just a feature-complete application — it's a learning resource with a professional automation suite, comprehensive documentation, and deployment infrastructure.
 
-### 🔍 Perfect for:
-- **Developers** managing coding projects and sprints
-- **Students** organizing assignments and study schedules  
-- **Teams** collaborating on projects and deadlines
-- **Freelancers** tracking client work and deliverables
-- **Anyone** looking for a beautiful, free alternative to paid task managers
+### 🔍 Who's This For?
+
+| Role | Use Case |
+|------|----------|
+| **Students & Developers** | Learn full-stack development with a real project; study the automation test suite |
+| **Teams & Freelancers** | Free, self-hosted alternative to paid task managers with team collaboration |
+| **Portfolio Builders** | Production-grade code to showcase in interviews and portfolios |
+| **Open Source Contributors** | Well-documented codebase with clear conventions (see `CLAUDE.md`) |
+
+---
+
+## 🚀 Key Highlights
+
+> ### 🎯 The Complete Package
+> - **Frontend:** Responsive React dashboard with real-time updates
+> - **Backend:** RESTful API with JWT authentication and role validation  
+> - **Database:** MongoDB with Mongoose schemas and indexing
+> - **Testing:** 38+ automated tests (REST Assured + Selenium) with CI/CD ready
+> - **Docs:** API reference, setup guide, and developer playbook included
+> - **Deployed:** Live on Vercel (UI) and Render (API) — see it working now
+
+### 📈 Project Statistics
+
+| Metric | Value |
+|--------|-------|
+| **Lines of Code** | 5000+ (excluding node_modules) |
+| **API Endpoints** | 18+ (auth, todos, categories) |
+| **Test Coverage** | 31 API tests + 7 UI tests |
+| **Automation Frameworks** | Maven, TestNG, REST Assured, Selenium |
+| **Documentation Pages** | README + CLAUDE.md + inline comments |
+| **Deployment Targets** | Vercel, Render, MongoDB Atlas |
+
+## ⚡ Quick Start (60 seconds)
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/SagarSuryakantWaghmare/taskflow.git
+cd taskflow
+
+# 2. Install and start (frontend + backend together)
+npm install
+npm run dev
+
+# 3. Open your browser
+# Frontend: http://localhost:5173
+# Backend API: http://localhost:5000
+# Try the demo login: atharvawandhare@gmail.com / 12345678
+```
+
+> ✨ **First time?** Full setup instructions are in the [🚀 Quick Start Guide](#-quick-start-guide) below.
+
+---
+
+## ✨ Feature Showcase
+
+### 🎨 **User Interface**
+- Dark mode dashboard with glassmorphism design
+- Responsive layout (mobile, tablet, desktop)
+- Real-time task updates and notifications
+- Kanban and list views
+- Task filtering by status, priority, category
+
+### 🔐 **Authentication & Security**
+- JWT-based stateless authentication
+- Secure password hashing with bcrypt
+- Protected API endpoints with middleware
+- Auto-logout on token expiry
+- CORS enabled for cross-origin requests
+
+### 📝 **Task Management**
+- Create, read, update, delete (CRUD) operations
+- Assign priority levels (low, medium, high)
+- Organize by categories and due dates
+- Mark tasks complete or archive them
+- Search and filter capabilities
+
+### 🤖 **Automation Suite**
+- 31 REST API tests with RestAssured
+- 7 Selenium UI tests covering auth & tasks
+- Page Object Model for maintainability
+- TestNG for grouping and prioritization
+- Maven profiles for easy suite selection
+
+### 📊 **Backend API**
+- 18+ RESTful endpoints
+- Comprehensive error handling
+- Input validation with Mongoose
+- Pagination on list endpoints
+- JSON request/response format
+
+---
 
 ## 📋 Table of Contents
 
