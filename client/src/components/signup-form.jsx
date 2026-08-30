@@ -79,36 +79,36 @@ export function SignupForm({
 
   return (
     <div className={cn("flex flex-col gap-6 w-full max-w-sm mx-auto", className)} {...props}>
-    <Card className="border-gray-200 bg-white/90 backdrop-blur-sm shadow-2xl">
+      <Card className="border-gray-800 bg-gray-900/90 backdrop-blur-sm shadow-2xl">
         <CardHeader className="text-center space-y-2">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-2 shadow">
-            <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-2 shadow-lg">
+            <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
             </svg>
           </div>
-          <CardTitle className="text-2xl font-bold text-slate-900">Create your account</CardTitle>
-          <CardDescription className="text-gray-600">
+          <CardTitle className="text-2xl font-bold text-white">Create your account</CardTitle>
+          <CardDescription className="text-gray-400">
             Join TaskFlow and start organizing your tasks
           </CardDescription>
         </CardHeader>
         <CardContent>
           {/* Error Message */}
           {error && (
-            <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-600 text-sm">{error}</p>
+            <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+              <p className="text-red-400 text-sm">{error}</p>
             </div>
           )}
 
           {/* Success Message */}
           {success && (
-            <div className="mb-4 p-3 bg-green-50 border border-green-200 rounded-lg">
-              <p className="text-green-600 text-sm">{success}</p>
+            <div className="mb-4 p-3 bg-green-500/10 border border-green-500/20 rounded-lg">
+              <p className="text-green-400 text-sm">{success}</p>
             </div>
           )}
 
           <form className="space-y-4" onSubmit={submitHandle}>
             <div className="space-y-2">
-              <Label htmlFor="name" className="text-gray-700 text-sm font-medium">Full Name</Label>
+              <Label htmlFor="name" className="text-gray-300 text-sm font-medium">Full Name</Label>
               <Input 
                 id="name" 
                 name="name"
@@ -116,11 +116,11 @@ export function SignupForm({
                 placeholder="Enter your full name" 
                 required 
                 disabled={isLoading}
-                  className="bg-gray-100/70 border-gray-200 text-slate-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
+                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-gray-700 text-sm font-medium">Email address</Label>
+              <Label htmlFor="email" className="text-gray-300 text-sm font-medium">Email address</Label>
               <Input 
                 id="email" 
                 name="email"
@@ -128,11 +128,11 @@ export function SignupForm({
                 placeholder="Enter your email" 
                 required 
                 disabled={isLoading}
-                className="bg-gray-100/70 border-gray-200 text-slate-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 rounded-md transition-all duration-200"
+                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-gray-700 text-sm font-medium">Password</Label>
+              <Label htmlFor="password" className="text-gray-300 text-sm font-medium">Password</Label>
               <Input 
                 id="password" 
                 name="password"
@@ -140,11 +140,11 @@ export function SignupForm({
                 placeholder="Create a password" 
                 required 
                 disabled={isLoading}
-                className="bg-gray-100/70 border-gray-200 text-slate-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
+                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="confirmPassword" className="text-gray-700 text-sm font-medium">Confirm Password</Label>
+              <Label htmlFor="confirmPassword" className="text-gray-300 text-sm font-medium">Confirm Password</Label>
               <Input 
                 id="confirmPassword" 
                 name="confirmPassword"
@@ -152,13 +152,13 @@ export function SignupForm({
                 placeholder="Confirm your password" 
                 required 
                 disabled={isLoading}
-                className="bg-gray-100/70 border-gray-200 text-slate-900 placeholder:text-gray-400 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
+                className="bg-gray-800/50 border-gray-700 text-white placeholder:text-gray-500 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 h-11 rounded-lg transition-all duration-200"
               />
             </div>
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2 h-9 rounded-md transition-all duration-150 shadow mt-4 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 h-11 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl mt-6 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {isLoading ? "Creating Account..." : "Create Account"}
             </Button>

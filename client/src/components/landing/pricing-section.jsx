@@ -25,10 +25,10 @@ export function PricingSection() {
   return (
     <section id="pricing" className="container space-y-6 py-8 md:py-12 lg:py-24">
       <div className="mx-auto flex max-w-[980px] flex-col items-center gap-4">
-        <h2 className="text-center text-3xl font-bold leading-[1.1] sm:text-3xl md:text-6xl text-slate-900">
+        <h2 className="text-center text-3xl font-bold leading-[1.1] sm:text-3xl md:text-6xl text-white">
           Completely Free Forever
         </h2>
-        <p className="max-w-[85%] text-center text-gray-600 sm:text-lg">
+        <p className="max-w-[85%] text-center text-gray-400 sm:text-lg">
           No hidden costs, no limitations, no credit card required. Everything you need to organize your tasks is completely free.
         </p>
       </div>
@@ -42,12 +42,12 @@ export function PricingSection() {
             </Badge>
           </div>
           
-            <CardHeader className="text-center">
-            <CardTitle className="text-3xl text-slate-900">TaskFlow</CardTitle>
-            <CardDescription className="text-gray-600">Everything you need to stay organized</CardDescription>
+          <CardHeader className="text-center">
+            <CardTitle className="text-3xl text-white">TaskFlow</CardTitle>
+            <CardDescription className="text-gray-300">Everything you need to stay organized</CardDescription>
             <div className="flex items-baseline justify-center gap-1 pt-4">
-              <span className="text-5xl font-bold text-slate-900">$0</span>
-              <span className="text-gray-600 text-xl">/forever</span>
+              <span className="text-5xl font-bold text-white">$0</span>
+              <span className="text-gray-300 text-xl">/forever</span>
             </div>
           </CardHeader>
 
@@ -56,25 +56,25 @@ export function PricingSection() {
               {features.map((feature, index) => {
                 const Icon = feature.icon;
                 return (
-                  <div key={index} className="text-center p-4 rounded-lg bg-white/50">
+                  <div key={index} className="text-center p-4 rounded-lg bg-gray-900/50">
                     <div className="flex justify-center mb-3">
                       <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
                         <Icon className="h-6 w-6 text-white" />
                       </div>
                     </div>
-                    <h3 className="font-semibold text-slate-900 mb-2">{feature.title}</h3>
-                    <p className="text-sm text-gray-600">{feature.description}</p>
+                    <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
+                    <p className="text-sm text-gray-400">{feature.description}</p>
                   </div>
                 );
               })}
             </div>
 
             <div className="space-y-3">
-              <h4 className="font-semibold text-slate-900 text-center mb-4">What's Included:</h4>
+              <h4 className="font-semibold text-white text-center mb-4">What's Included:</h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-blue-400" />
-                  <span className="text-sm text-gray-600">Unlimited tasks and categories</span>
+                  <span className="text-sm text-gray-300">Unlimited tasks and categories</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Check className="h-4 w-4 text-blue-400" />
@@ -124,7 +124,7 @@ export function PricingSection() {
       </div>
 
       <div className="mx-auto max-w-[980px] text-center">
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-400">
           No credit card required • No hidden fees • No limitations • Free forever
         </p>
       </div>

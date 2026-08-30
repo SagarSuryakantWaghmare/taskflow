@@ -2,36 +2,29 @@
 
 @layer base {
   :root {
-    /* Light theme: white background and light-blue primary */
-    --background: 210 100% 99%; /* near white */
-    --foreground: 210 16% 12%; /* dark slate for text */
-    --card: 210 100% 100%;
-    --card-foreground: 210 16% 12%;
-    --popover: 210 100% 100%;
-    --popover-foreground: 210 16% 12%;
-    --primary: 210 85% 60%; /* light blue */
-    --primary-foreground: 210 100% 100%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 210 16% 12%;
-    --muted: 210 20% 98%;
-    --muted-foreground: 210 16% 40%;
-    --accent: 210 60% 96%;
-    --accent-foreground: 210 16% 12%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 95%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
-    --border: 210 16% 90%;
-    --input: 210 20% 98%;
-    --ring: 210 85% 60%;
-    --radius: 0.375rem;
-    /* compact spacing tokens */
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 0.75rem;
-    --space-lg: 1rem;
+    --border: 0 0% 20%;
+    --input: 0 0% 15%;
+    --ring: 217 91% 60%;
+    --radius: 0.5rem;
   }
 
   .dark {
-    /* Dark theme retains previous dark palette */
     --background: 0 0% 5%;
     --foreground: 0 0% 95%;
     --card: 0 0% 8%;
@@ -59,7 +52,7 @@
     border-color: hsl(var(--border));
   }
   body {
-    background-color: hsl(var(--background));
+    background-color: #000000;
     color: hsl(var(--foreground));
     font-feature-settings: "rlig" 1, "calt" 1;
   }

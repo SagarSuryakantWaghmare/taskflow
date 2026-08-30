@@ -5,8 +5,8 @@ import { CTASection } from "@/components/landing/cta-section";
 
 export function LandingPage() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-white text-slate-900">      
-      <main className="flex-1 bg-white">
+    <div className="relative flex min-h-screen flex-col bg-black">      
+      <main className="flex-1 bg-black">
         <HeroSection />
         <FeaturesSection />
         <PricingSection />
